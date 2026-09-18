@@ -110,10 +110,10 @@ namespace MemoBoard.Api
             app.UseHttpsRedirection();
             app.Use(async (context, next) =>
             {
-                context.Response.Headers["X-Content-Type-Options"] = "nosniff";
-                context.Response.Headers["X-Frame-Options"] = "DENY";
+                context.Response.Headers.XContentTypeOptions = "nosniff";
+                context.Response.Headers.XFrameOptions = "DENY";
                 context.Response.Headers["Referrer-Policy"] = "no-referrer";
-                context.Response.Headers["Cache-Control"] = "no-store";
+                context.Response.Headers.CacheControl = "no-store";
                 await next();
             });
             app.UseCors();
