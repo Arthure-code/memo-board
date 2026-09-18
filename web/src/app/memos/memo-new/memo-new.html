@@ -1,0 +1,49 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm border">
+        <div class="card-header bg-white text-center pt-4">
+          <h2 class="h4 mb-0 fw-bold text-dark">New memo</h2>
+        </div>
+        <div class="card-body px-4 pb-4">
+          <form (ngSubmit)="add()" autocomplete="off">
+            <div class="mb-3">
+              <label for="title" class="visually-hidden">Title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="title"
+                name="title"
+                [(ngModel)]="memo.title"
+                placeholder="Title"
+                maxlength="100"
+                required
+              />
+            </div>
+
+            <div class="mb-4">
+              <label for="body" class="visually-hidden">Text</label>
+              <textarea
+                class="form-control"
+                id="body"
+                name="body"
+                rows="6"
+                [(ngModel)]="memo.body"
+                placeholder="Text"
+                maxlength="2000"
+                required
+              ></textarea>
+            </div>
+
+            <div class="d-grid gap-2">
+              <button class="btn btn-success py-2" type="submit">Add</button>
+              <a routerLink="/memos" class="btn btn-link text-primary text-decoration-none"
+                >Cancel</a
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
