@@ -1,0 +1,38 @@
+@host = http://localhost:5047
+@token = paste-the-token-from-login-here
+
+### Open an account
+POST {{host}}/api/accounts
+Content-Type: application/json
+
+{
+  "userName": "alice",
+  "password": "correct horse battery"
+}
+
+### Sign in
+POST {{host}}/api/accounts/login
+Content-Type: application/json
+
+{
+  "userName": "alice",
+  "password": "correct horse battery"
+}
+
+### My memos
+GET {{host}}/api/memos
+Authorization: Bearer {{token}}
+
+### Add one
+POST {{host}}/api/memos
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "Groceries",
+  "body": "Milk, bread, eggs"
+}
+
+### Delete one of mine
+DELETE {{host}}/api/memos/1
+Authorization: Bearer {{token}}
