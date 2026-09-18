@@ -1,0 +1,43 @@
+<div class="container-fluid" style="background-color: #f8f9fa; min-height: 100vh">
+  <div class="container mt-4">
+    <div class="mb-4">
+      <a
+        routerLink="/memos/new"
+        class="btn btn-warning text-dark fw-bold px-4 py-2"
+        data-testid="new"
+        >New</a
+      >
+    </div>
+
+    @if (loading()) {
+      <div class="text-center py-5">
+        <output class="spinner-border text-primary">
+          <span class="visually-hidden">Loading...</span>
+        </output>
+      </div>
+    } @else if (memos().length === 0) {
+      <div class="alert alert-info text-center" data-testid="empty">
+        No memos yet. Write your first one.
+      </div>
+    } @else {
+      <div class="d-flex flex-column gap-3" data-testid="memos">
+        @for (memo of memos(); track memo.id) {
+          <article class="card shadow-sm border-0" style="background-color: white">
+            <div class="card-body p-4">
+              <h2 class="h5 card-title fw-bold text-dark mb-1">{{ memo.title }}</h2>
+              <p class="text-secondary small fst-italic fw-bold mb-2">
+                {{ memo.createdAt | date: 'MMM d, y, h:mm a' }}
+              </p>
+              <p class="card-text text-secondary mb-0">{{ memo.body }}</p>
+            </div>
+            <div class="card-footer bg-transparent d-flex justify-content-start">
+              <button type="button" class="btn btn-danger btn-sm px-3" (click)="remove(memo)">
+                Delete
+              </button>
+            </div>
+          </article>
+        }
+      </div>
+    }
+  </div>
+</div>
