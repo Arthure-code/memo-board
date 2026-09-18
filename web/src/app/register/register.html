@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <form (ngSubmit)="register()" autocomplete="off">
+            <h2 class="text-center text-primary mb-4">Create an account</h2>
+
+            <div class="mb-3">
+              <label for="userName" class="visually-hidden">User name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="userName"
+                name="userName"
+                [(ngModel)]="credentials.userName"
+                placeholder="User name"
+                autocomplete="username"
+                minlength="3"
+                maxlength="30"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="visually-hidden">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                [(ngModel)]="credentials.password"
+                placeholder="Password, 8 characters or more"
+                autocomplete="new-password"
+                minlength="8"
+                required
+              />
+            </div>
+
+            <div class="d-grid gap-2">
+              <button class="btn btn-success" type="submit">Create account</button>
+              <a routerLink="/" class="btn btn-outline-secondary">Cancel</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

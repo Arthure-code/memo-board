@@ -1,1 +1,23 @@
-<h1 class="container py-4">Memo Board</h1>
+<nav class="navbar navbar-dark" style="background-color: #343a40">
+  <div class="container-fluid px-4">
+    <span class="navbar-brand fw-bold mb-0">Memo</span>
+
+    @if (signedIn()) {
+      <div class="ms-auto d-flex align-items-center gap-3">
+        <span class="text-white-50 small" data-testid="user-name">{{ userName() }}</span>
+        <button
+          type="button"
+          class="btn btn-success btn-sm"
+          (click)="signOut()"
+          data-testid="sign-out"
+        >
+          Sign out
+        </button>
+      </div>
+    }
+  </div>
+</nav>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
