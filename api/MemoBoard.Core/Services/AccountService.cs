@@ -30,7 +30,8 @@ namespace MemoBoard.Core.Services
         public async Task<Account?> AuthenticateAsync(LoginRequest request)
         {
             var userName = Normalize(request.UserName);
-            var account = (await _accounts.ListAsync(a => a.UserName == userName)).FirstOrDefault();
+            var matches = await _accounts.ListAsync(a => a.UserName == userName);
+            var account = matches.Count == 0 ? null : matches[0];
             if (account is null) return null;
 
             var result = _hasher.VerifyHashedPassword(account, account.PasswordHash, request.Password);
