@@ -1,5 +1,14 @@
 # memo-board
 
+[![Build](https://github.com/Arthure-code/memo-board/actions/workflows/build.yml/badge.svg)](https://github.com/Arthure-code/memo-board/actions/workflows/build.yml)
+[![Quality gate](https://sonarcloud.io/api/project_badges/measure?project=Arthure-code_memo-board&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Arthure-code_memo-board)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Arthure-code_memo-board&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Arthure-code_memo-board)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Arthure-code_memo-board&metric=bugs)](https://sonarcloud.io/summary/new_code?id=Arthure-code_memo-board)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Arthure-code_memo-board&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=Arthure-code_memo-board)
+[![Security rating](https://sonarcloud.io/api/project_badges/measure?project=Arthure-code_memo-board&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=Arthure-code_memo-board)
+[![Code smells](https://sonarcloud.io/api/project_badges/measure?project=Arthure-code_memo-board&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Arthure-code_memo-board)
+[![Duplicated lines](https://sonarcloud.io/api/project_badges/measure?project=Arthure-code_memo-board&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=Arthure-code_memo-board)
+
 Private memos behind a sign-in. Open an account, sign in, write memos,
 delete them; nobody else sees them, not even with the address of one.
 The API keeps only a hash of each password, answers every sign-in
@@ -125,7 +134,8 @@ the session service against `HttpTestingController` and
 `sessionStorage`, the interceptor adding the token and ending the
 session on a 401, the guard, the error messages, and the three pages
 with the services replaced by stubs. `npm run lint` runs angular-eslint,
-`npm run coverage` writes the lcov report.
+`npm run coverage` writes the lcov report that the workflow, with the
+OpenCover report of `dotnet test`, hands to SonarCloud.
 
 ## Stack
 
@@ -133,8 +143,8 @@ ASP.NET Core 8 Web API, Entity Framework Core 8 with SQLite and a
 migration, `PasswordHasher`, JWT bearer authentication, the built-in rate
 limiter, xUnit with `WebApplicationFactory`. Angular 21 with standalone
 components, signals, functional guard and interceptor, template forms,
-ngx-toastr; Bootstrap 5.3 through npm, only the parts the pages use;
-Vitest.
+ngx-toastr 20 (no animations module needed); Bootstrap 5.3 through npm,
+only the parts the pages use; Vitest.
 
 ## Résumé
 
